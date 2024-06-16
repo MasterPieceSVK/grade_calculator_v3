@@ -12,9 +12,14 @@ calculateRouter.post("/", (req, res) => {
     if (!req.body.grades) {
       return res.status(400).json({ error: "Grades missing." });
     }
-    req.grades = JSON.parse(req.body.grades);
-    const mode = recognize(req.grades, res);
-    console.log("mode ", mode);
+    if (typeof req.body.grades == "string") {
+      req.body.grades = JSON.parse(req.body.grades);
+    }
+    const mode = Number(req.body.mode);
+    console.log(mode);
+    if (isNaN(mode)) {
+      throw new Error();
+    }
     switch (mode) {
       case 1:
         ptsOutOfPts(req, res);

@@ -2,7 +2,7 @@ function ptsOutOfPts(req, res) {
   try {
     // grades = array, wanted = percentage (e.g 85%), nextPoints = Number
     let { wanted, nextPoints } = req.body;
-    let { grades } = req;
+    let { grades } = req.body;
     if (!grades || !wanted || !nextPoints) {
       return res.status(400).json({ error: "Parameter/s missing." });
     }
