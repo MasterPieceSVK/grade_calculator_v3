@@ -2,8 +2,7 @@ const { calculate } = require("./ptsOutOfPts");
 
 function percentage(req, res) {
   try {
-    let { wanted, nextWeight } = req.body;
-    let { grades } = req;
+    let { wanted, nextWeight, grades } = req.body;
 
     if (!grades || !wanted || !nextWeight) {
       return res.status(400).json({ error: "Parameter/s missing." });
