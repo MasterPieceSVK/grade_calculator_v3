@@ -38,7 +38,6 @@ uploadRouter.post(
     { name: "mode", maxCount: 1 },
   ]),
   (req, res) => {
-    console.log(req.body.mode);
     console.log("Request received");
     if (!req.files || !req.files.image) {
       console.error("No file received");
